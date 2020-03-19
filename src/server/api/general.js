@@ -285,7 +285,7 @@ export default function useGeneralApi(app) {
                 this.session.a,
                 error
             );
-            this.body = JSON.stringify({ error: error.message });
+            this.body = JSON.stringify({ error });
             this.status = 500;
         }
     });
