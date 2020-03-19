@@ -31,7 +31,7 @@ const _parse = params => {
 };
 
 function logRequest(path, ctx, extra) {
-    let d = { ip: getRemoteIp(ctx.req) };
+    const d = { ip: getRemoteIp(ctx.req) };
     if (ctx.session) {
         if (ctx.session.user) {
             d.user = ctx.session.user;
@@ -267,7 +267,8 @@ export default function useGeneralApi(app) {
                 config.get('conveyor_username'),
                 config.get('conveyor_posting_wif')
             );
-
+            console.log('----signedCallAsync----', res);
+            console.log('----ACCEPTED_TOS_TAG----', ACCEPTED_TOS_TAG);
             this.body = JSON.stringify(res.includes(ACCEPTED_TOS_TAG));
         } catch (error) {
             console.error(
