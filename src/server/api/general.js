@@ -261,6 +261,15 @@ export default function useGeneralApi(app) {
         }
 
         try {
+            console.log('----session----', this.session);
+            console.log(
+                '----conveyor_username----',
+                config.get('conveyor_username')
+            );
+            console.log(
+                '----conveyor_posting_wif----',
+                config.get('conveyor_posting_wif')
+            );
             const res = yield api.signedCallAsync(
                 'conveyor.get_tags_for_user',
                 [this.session.a],
